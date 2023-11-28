@@ -1,4 +1,3 @@
-// service-worker.js
 const CACHE_NAME = 'my-pwa-cache-v1';
 const urlsToCache = [
     './',
@@ -26,15 +25,15 @@ self.addEventListener('fetch', event => {
     );
 });
 
-// service-worker.js (actualizado)
+
 self.addEventListener('push', event => {
-    console.log("envio del evento")
+    
     const options = {
         body: event.data.text(),
         icon: 'icon.png',
         badge: 'badge.png'
     };
-
+    console.log(options);
     event.waitUntil(
         self.registration.showNotification('Notificación Push', options)
     );
@@ -42,5 +41,4 @@ self.addEventListener('push', event => {
 
 self.addEventListener('notificationclick', event => {
     event.notification.close();
-    // Agrega lógica para manejar la acción al hacer clic en la notificación
 });
