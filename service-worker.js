@@ -28,6 +28,7 @@ self.addEventListener('fetch', event => {
 
 // service-worker.js (actualizado)
 self.addEventListener('push', event => {
+    console.log("envio del evento")
     const options = {
         body: event.data.text(),
         icon: 'icon.png',
